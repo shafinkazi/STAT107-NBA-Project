@@ -1,0 +1,37 @@
+---
+title: "STAT107MidwayReport"
+output: html_document
+date: "2025-11-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+To begin, this report was made in conjunction with Tiffany Huang, Shafin Kazi, and Derek De Gracia for STAT107 at UCR taught by Jose Sanchez Gomez
+
+We first begin by loading the data in a readable format.
+```{r}
+library(readr)
+database_24_25 <- read_csv("C:/Users/drekk/Downloads/database_24_25.csv")
+View(database_24_25)
+summary(database_24_25)
+```
+
+As the data appears to be complete but not sorted, cleaning does not appear to be necessary, however we will apply sorting as a code to run. Additionally, our focus is primarily on a team's wins, and their 3-point shooting percentage as of right now. We can remove all other data except for those mentioned above and their raw data.
+```{r}
+
+```
+
+Our research question is "Do NBA teams with higher 3-point shooting percentages (3P%) tend to win more games during the 2024–25 season?"
+
+We can begin with a linear regression in order to determine the correlation between shooting a higher 3-point percentage with the number of wins this an individual team has.
+```{r}
+model <- lm(y ~ x, data = data) # Fit linear model
+```
+
+We follow this by creating a significance test to determine its significance and how probable this correlation is.
