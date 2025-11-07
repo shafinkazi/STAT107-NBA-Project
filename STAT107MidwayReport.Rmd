@@ -29,14 +29,24 @@ head(database_24_25)
 
 As the data appears to be complete but not sorted, cleaning does not appear to be necessary, however we will apply sorting as a code to run. Additionally, our focus is primarily on a team's wins, and their 3-point shooting percentage as of right now. We can remove all other data except for those mentioned above and their raw data.
 ```{r}
+team_summary <- database_24_25
+  group_by(Tm)
+  summarise(
+    avg_3P_pct = mean(`3P%`, na.rm = TRUE),
+    total_games = n_distinct(Data),
+    wins = sum(Res == "W"),
+    losses = sum(Res == "L")
+  )
+  arrange(desc(avg_3P_pct))
 
+print(team_summary)
 ```
 
 Our research question is "Do NBA teams with higher 3-point shooting percentages (3P%) tend to win more games during the 2024–25 season?"
 
 We can begin with a linear regression in order to determine the correlation between shooting a higher 3-point percentage with the number of wins this an individual team has.
 ```{r}
-model <- lm(y ~ x, data = data) # Fit linear model
+model <- lm(avg_3P_pct ~ wins, database_24_25 = database_24_25) # Fit linear model
 ```
 
 We follow this by creating a significance test to determine its significance and how probable this correlation is.
