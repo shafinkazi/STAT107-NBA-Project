@@ -65,3 +65,6 @@ We then follow this up with a t test in order to determine significance and how 
 t_test_result <- t.test(team_summary$avg_3P_pct, team_summary$wins, data = team_summary)
 print(t_test_result)
 ```
+Our null and alternative hypothesis can be:
+H₀ (Null): There is no correlation between 3P% and number of wins.
+H₁ (Alternative): Higher 3P% is associated with more wins.
